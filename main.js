@@ -7,7 +7,8 @@ const symbolsEl = document.getElementById('symbols');
 const generateEl = document.getElementById('generate');
 const clipboard = document.getElementById('clipboard');
 
-const randomFunc = {
+// Generate random values
+const randomFunc = { 
 	lower: getRandomLower,
 	upper: getRandomUpper,
 	number: getRandomNumber,
@@ -16,16 +17,14 @@ const randomFunc = {
 
 clipboard.addEventListener('click', () => {
 	const textarea = document.createElement('textarea');
-	const password = resultEl.innerText;
-
+	const password = resultEl.innerText; //grabbing the resultbox text
 	if (!password) {
 		return;
 	}
-
 	textarea.value = password;
 	document.body.appendChild(textarea);
 	textarea.select();
-	document.execCommand('copy');
+	document.execCommand('copy'); //used to  replace clipboard contents
 	textarea.remove();
 	alert('Password copied to clipboard');
 });
@@ -47,15 +46,7 @@ function generatePassword(lower, upper, number, symbol, length) {
 	//4. Add final pw to the pw var and return
 	let generatedPassword = '';
 	const typesCount = lower + upper + number + symbol;
-	const typesArr = [{
-		lower
-	}, {
-		upper
-	}, {
-		number
-	}, {
-		symbol
-	}].filter(item => Object.values(item)[0]); //0 used to filter out false values
+	const typesArr = [{lower}, {upper}, {number}, {symbol}].filter(item => Object.values(item)[0]); //0 used to filter out false values
 	//{} used to convert the array into an array of objects with key value 
 	// Doesn't have a selected type
 	if (typesCount === 0) {
