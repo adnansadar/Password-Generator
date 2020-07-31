@@ -2,6 +2,8 @@
 
 This is a Password Generator App created using Vanilla Javascript. No Frameworks used.
 
+#### The above code is deployed at [this link](https://simplepasswordgenerator.netlify.app/)
+
 ## Screenshots
 ![](screenshot1.png)
 
